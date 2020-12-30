@@ -1,0 +1,23 @@
+# galactic market founded first time, detractors
+project_sunshine_article_available_1 = {
+	NOT = {
+		has_country_flag = project_sunshine_article_1
+	}
+	has_country_flag = project_sunshine_galactic_market_founded_once_temp
+	any_country = {
+		has_modifier = galactic_market_founder
+	}
+	exists = event_target:galactic_market_station
+}
+
+project_sunshine_article_available_2 = {
+	NOT = {
+		has_country_flag = project_sunshine_article_2
+	}
+}
+
+project_sunshine_article_available_3 = {
+	NOT = {
+		has_country_flag = project_sunshine_article_3
+	}
+}

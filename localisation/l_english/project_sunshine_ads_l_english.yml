@@ -1,0 +1,10 @@
+﻿l_english:
+	project_sunshine.110.title: "[project_sunshine_ad.GetName]"
+	# star noodles, 1+ colony
+	project_sunshine_ad.1: "We are now selling star noodles on the planet §Y[project_sunshine_ad_1_planet.GetName]§!! The flavor will explode in your mouth, bringing you to undiscovered heights!\nCome discover this delicacy for the modest sum of §M8.99§! pEC!"
+	# politics, 1+ country with 2+ colonies
+	project_sunshine_ad.2: "The §MFoundation for a better future§! of §Y[project_sunshine_ad_2_planet_1.GetName]§! deplores that the §RFaction for Tomorrow§! of §Y[project_sunshine_ad_2_planet_2.GetName]§! hasn't been declared illegal.\nThey are known to be dangerous and oblivious to common sense.\nWe recommend everyone to stay away from them and to petition your government for a ban.\nTogether, let's make a §Mbetter future§!!"
+	# rivalry, 1+ country with 1+ rival
+	project_sunshine_ad.3: "Proud citizens of §Y[project_sunshine_ad_3_country_1.GetName]§! want everyone to remember the atrocities committed by §Y[project_sunshine_ad_3_country_2.GetName]§!.\nWe encourage everyone to cut ties with them and petition your government for a ban.\nEveryone, please follow your civic duties, only that way will we be able to reach galactic peace."
+	# ad space, always true
+	project_sunshine_ad.4: "§MYou§! have something to say, but nobody's listening?\n§MYou§! have something to show, but nobody's watching?\n§MYou§! have something to sell, but nobody's buying?\n§YDon't panic!§!\nBuy this ad space!\nOnly §M1.29§! nEC!"

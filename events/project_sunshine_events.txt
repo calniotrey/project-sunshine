@@ -1,0 +1,237 @@
+namespace = project_sunshine
+#
+event = {
+	id = project_sunshine.1
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		create_species = {
+			class = MOL
+			portrait = mol17
+			effect = {
+				save_global_event_target_as = project_sunshine_species
+			}
+		}
+		create_country = {
+			name = random
+			type = project_sunshine
+			species = event_target:project_sunshine_species
+			effect = {
+				save_global_event_target_as = project_sunshine_country
+				# journalist
+				create_leader = {
+					class = scientist
+					species = event_target:project_sunshine_species
+					name = random
+					immortal = yes
+					effect = {
+						save_global_event_target_as = project_sunshine_leader
+						change_leader_portrait = mol17_albin
+					}
+				}
+				# article
+				create_leader = {
+					class = governor
+					species = event_target:project_sunshine_species
+					name = random
+					immortal = yes
+					effect = {
+						save_global_event_target_as = project_sunshine_article
+						change_leader_portrait = mol1
+					}
+				}
+				# ad
+				create_leader = {
+					class = governor
+					species = event_target:project_sunshine_species
+					name = random
+					immortal = yes
+					effect = {
+						save_global_event_target_as = project_sunshine_ad
+						change_leader_portrait = mol2
+					}
+				}
+				# top3
+				create_leader = {
+					class = governor
+					species = event_target:project_sunshine_species
+					name = random
+					immortal = yes
+					effect = {
+						save_global_event_target_as = project_sunshine_top3_category
+						change_leader_portrait = mol3
+					}
+				}
+				create_leader = {
+					class = governor
+					species = event_target:project_sunshine_species
+					name = random
+					immortal = yes
+					effect = {
+						save_global_event_target_as = project_sunshine_top3_unit
+						change_leader_portrait = mol4
+					}
+				}
+			}
+		}
+		set_timed_global_flag = {
+			flag = project_sunshine_writing
+			days = 1798			# TODO set a bit more randomness
+		}
+	}
+}
+
+event = {
+	id = project_sunshine.100
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		NOT = {
+			has_global_flag = project_sunshine_writing
+		}
+	}
+	immediate = {
+		set_timed_global_flag = {
+			flag = project_sunshine_writing
+			days = 1798			# TODO set a bit more randomness
+		}
+		event_target:project_sunshine_country = {
+			country_event = {
+				id = project_sunshine.101
+			}
+		}
+	}
+}
+
+country_event = {
+	id = project_sunshine.101
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		project_sunshine_investigate = yes
+		project_sunshine_select_top3 = yes
+		project_sunshine_select_article = yes
+		project_sunshine_select_ad = yes
+		project_sunshine_close_investigation = yes
+		every_country = {
+			limit = {
+				project_sunshine_display = yes
+			}
+			country_event = {
+				id = project_sunshine.110
+			}
+		}
+	}
+}
+
+country_event = {
+	id = project_sunshine.110
+	custom_gui = project_sunshine_window
+	diplomatic = yes
+	is_triggered_only = yes
+	title = "project_sunshine.110.title"
+	desc = "project_sunshine.110.desc"
+	picture_event_data = {
+		portrait = event_target:project_sunshine_leader
+		room = personality_hegemonic_imperialists_room
+		planet_background = pc_gaia
+	}
+	option = {
+		name = project_sunshine_top3_category
+		custom_gui = project_sunshine_top3_category
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 0
+				}
+			}
+		}
+		name = project_sunshine_top3_first
+		custom_gui = project_sunshine_top3_first_name
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 0
+				}
+			}
+		}
+		name = project_sunshine_top3_first_variable
+		custom_gui = project_sunshine_top3_first_variable
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 1
+				}
+			}
+		}
+		name = project_sunshine_top3_second
+		custom_gui = project_sunshine_top3_second_name
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 1
+				}
+			}
+		}
+		name = project_sunshine_top3_second_variable
+		custom_gui = project_sunshine_top3_second_variable
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 2
+				}
+			}
+		}
+		name = project_sunshine_top3_third
+		custom_gui = project_sunshine_top3_third_name
+	}
+	option = {
+		trigger = {
+			event_target:project_sunshine_country = {
+				check_variable = {
+					which = project_sunshine_top3_variables_length
+					value > 2
+				}
+			}
+		}
+		name = project_sunshine_top3_third_variable
+		custom_gui = project_sunshine_top3_third_variable
+	}
+}
+
+# DUMMY EVENT FOR VSCODE
+country_event = {
+	id = project_sunshine.9999
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		set_variable = {
+			which = project_sunshine_top3_variables_length
+			value = 0
+		}
+		set_country_flag = project_sunshine_top3_category_1
+		set_country_flag = project_sunshine_top3_category_2
+		set_country_flag = project_sunshine_top3_category_3
+		set_country_flag = project_sunshine_ad_1
+		set_country_flag = project_sunshine_ad_2
+		set_country_flag = project_sunshine_ad_3
+		set_country_flag = project_sunshine_article_1
+		set_country_flag = project_sunshine_article_2
+		set_country_flag = project_sunshine_article_3
+	}
+}

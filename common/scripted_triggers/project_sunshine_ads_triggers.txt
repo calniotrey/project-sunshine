@@ -1,0 +1,42 @@
+# galactic market founded first time, detractors
+project_sunshine_ad_available_1 = {
+	NOT = {
+		has_country_flag = project_sunshine_ad_1
+	}
+	any_country = {
+		is_country_type = default
+		NOT = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		num_owned_planets >= 1
+	}
+}
+
+project_sunshine_ad_available_2 = {
+	NOT = {
+		has_country_flag = project_sunshine_ad_2
+	}
+	any_country = {
+		is_country_type = default
+		NOT = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		num_owned_planets >= 2
+	}
+}
+
+project_sunshine_ad_available_3 = {
+	NOT = {
+		has_country_flag = project_sunshine_ad_3
+	}
+	any_country = {
+		is_country_type = default
+		count_rival_country = {
+			count >= 1
+		}
+	}
+}
+
+project_sunshine_ad_available_4 = {
+	always = yes
+}

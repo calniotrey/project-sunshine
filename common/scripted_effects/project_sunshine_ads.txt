@@ -1,0 +1,117 @@
+# this = project sunshine country scope
+project_sunshine_select_ad = {
+	set_variable = {
+		which = project_sunshine_ad
+		value = 0
+	}
+	random_list = {
+		# star noodles, 1+ colony
+		10 = {
+			modifier = {
+				factor = 0
+				project_sunshine_ad_available_1 = no
+			}
+			project_sunshine_select_ad_select_targets = {
+				AD = 1
+			}
+		}
+		# politics, 1+ country with 2+ colonies
+		10 = {
+			modifier = {
+				factor = 0
+				project_sunshine_ad_available_2 = no
+			}
+			project_sunshine_select_ad_select_targets = {
+				AD = 2
+			}
+		}
+		# rivalry, 1+ country with 1+ rival
+		10 = {
+			modifier = {
+				factor = 0
+				project_sunshine_ad_available_3 = no
+			}
+			project_sunshine_select_ad_select_targets = {
+				AD = 3
+			}
+		}
+		# ad space, always true
+		1 = {
+			modifier = {
+				factor = 0
+				project_sunshine_ad_available_4 = no
+			}
+			project_sunshine_select_ad_select_targets = {
+				AD = 4
+			}
+		}
+	}
+}
+
+project_sunshine_select_ad_select_targets = {
+	set_country_flag = project_sunshine_ad_$AD$
+	set_variable = {
+		which = project_sunshine_ad
+		value = $AD$
+	}
+	project_sunshine_select_ad_select_targets_$AD$ = yes
+	event_target:project_sunshine_ad = {
+		set_name = project_sunshine_ad.$AD$
+	}
+}
+
+project_sunshine_select_ad_select_targets_1 = {
+	random_country = {
+		limit = {
+			is_country_type = default
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+			num_owned_planets >= 1
+		}
+		random_owned_planet = {
+			save_event_target_as = project_sunshine_ad_1_planet
+		}
+	}
+}
+
+project_sunshine_select_ad_select_targets_2 = {
+	random_country = {
+		limit = {
+			is_country_type = default
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+			num_owned_planets >= 2
+		}
+		random_owned_planet = {
+			save_event_target_as = project_sunshine_ad_2_planet_1
+		}
+		random_owned_planet = {
+			limit = {
+				NOT = {
+					is_same_value = event_target:project_sunshine_ad_2_planet_1
+				}
+			}
+			save_event_target_as = project_sunshine_ad_2_planet_2
+		}
+	}
+}
+
+project_sunshine_select_ad_select_targets_3 = {
+	random_country = {
+		limit = {
+			is_country_type = default
+			count_rival_country = {
+				count >= 1
+			}
+		}
+		save_event_target_as = project_sunshine_ad_3_country_1
+		random_rival_country = {
+			save_event_target_as = project_sunshine_ad_3_country_2
+		}
+	}
+}
+
+project_sunshine_select_ad_select_targets_4 = {
+}

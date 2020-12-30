@@ -1,0 +1,65 @@
+Welcome! Here's a quick guide that will explain what files you will need to change to add content. This will not explain the inner workings of the mod.
+
+Part 0: What weight should I put on my content?
+Content about very frequent events (pop grown for example) should have a very low weight.
+Content about very infrequent events (galactic market established for the first time) should have a very high weight.
+This should ensure that all content is relatively equivalently displayed.
+
+Part 1: Adding a top3 category
+1.
+Open up common/scripted_effects/project_sunshine_top3.txt.
+Locate the random_list and add another entry at the bottom of it by following the design of the one above it. Remember to use an increment the number of the category.
+Go to the bottom of the file and add a new scripted effect project_sunshine_select_top3_compute_score_ (remember to put the number of your category at the end of the name).
+In it, compute the score of the scoped country and put it into the variable project_sunshine_variable.
+2.
+Open up localisation/l_english/project_sunshine_top3_l_english.yml.
+On the bottom of the file, add 2 localisation entries similar to the 2 above (change the number of the category).
+In the category one, put the text describing the category of this top 3.
+In the unit one, put the text for the unit used for the score of each country. You can use icons or text.
+
+
+Part 2: Adding an ad
+1.
+Open up common/scripted_effects/project_sunshine_ads.txt.
+Locate the random_list and add another entry at the bottom of it by following the design of the one above it. Remember to use an increment the number of the ad.
+Go to the bottom of the file and add a new scripted effect project_sunshine_select_ad_select_targets_ (remember to put the number of your ad at the end of the name).
+In it, select the event targets and set variables if needed. If you don't need anything, leave it empty.
+2.
+Open up common/scripted_triggers/project_sunshine_ads_triggers.txt.
+Go to the bottom of the list and add a new scripted trigger project_sunshine_ad_available_ (with the number of the ad at the end of the name).
+In it, put at least the same NOT block as the others, and add conditions for the ad to be displayed.
+You might want to check part 4 to add effects before selecting ads (by example for computing parameters using SLEX).
+3.
+Open up localisation/l_english/project_sunshine_ads_l_english.yml.
+On the bottom of the file, add a localisation entry similar to the one above (change the number of the ad).
+Put the text of the ad in it.
+
+
+Part 3: Adding an article
+1.
+Open up common/scripted_effects/project_sunshine_articles.txt.
+Locate the random_list and add another entry at the bottom of it by following the design of the one above it. Remember to use an increment the number of the article.
+Go to the bottom of the file and add a new scripted effect project_sunshine_select_article_select_targets_ (remember to put the number of your article at the end of the name).
+In it, select the event targets and set variables if needed. If you don't need anything, leave it empty.
+2.
+Open up common/scripted_triggers/project_sunshine_articles_triggers.txt.
+Go to the bottom of the list and add a new scripted trigger project_sunshine_article_available_ (with the number of the article at the end of the name).
+In it, put at least the same NOT block as the others, and add conditions for the article to be displayed.
+You might want to check part 4 to add effects before selecting articles (by example for computing parameters using SLEX).
+3.
+Open up localisation/l_english/project_sunshine_articles_l_english.yml.
+On the bottom of the file, add a localisation entry similar to the one above (change the number of the article).
+Put the text of the article in it.
+
+Part 4: What is an investigation and how to add one
+1.
+This mod needs to track events happening.
+For example, if you want your article to only be possibly dispayed in the edition right after the galactic market was established for the first time, you will need to add an investigation.
+In that example, each time the newspaper is generated, if the market was just founded, add a flag to say it was founded once (so next time you check if it exists, you know it's not new)
+and add a flag to say it was founded since last edition.
+You can then refer to that flag when checking if your article should be available.
+Then, the investigations are closed, which meands that temporary flags such as this one will be removed to not impact next edition.
+2.
+Open up common/scripted_effects/project_sunshine_investigate.txt.
+Add the effect for your investigation at the bottom of project_sunshine_investigate.
+Add the effect for closing your investigation (for example removing temporary flags) at the bottom of project_sunshine_close_investigation.

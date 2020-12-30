@@ -1,0 +1,121 @@
+guiTypes = {
+    containerWindowType = {
+        name = "project_sunshine_top3_category"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = LEFT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_first_name"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = LEFT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_first_variable"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = RIGHT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_second_name"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = LEFT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_second_variable"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = RIGHT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_third_name"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = LEFT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+    containerWindowType = {
+        name = "project_sunshine_top3_third_variable"
+        position = { x = 0 y = 0 }
+        size = { width = 420 height = 32 }
+        moveable = no
+        
+        buttonType = {
+            name = "option_button"
+            quadTextureSprite = "GFX_invisible"
+            position = { x = 980 y = 50 }
+            size = { x = 420 y = 32 }
+            format = RIGHT
+            font = "malgun_goth_24"
+            text = "OPTION_TEXT"
+            alwaysTransparent = yes
+        }
+    }
+}

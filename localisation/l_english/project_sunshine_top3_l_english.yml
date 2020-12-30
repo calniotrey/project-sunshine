@@ -1,0 +1,24 @@
+﻿l_english:
+    project_sunshine_top3_category: "[project_sunshine_top3_category.GetName]"
+    project_sunshine_top3_first: "1. [project_sunshine_top3_countries_0.GetName]"
+    project_sunshine_top3_first_variable: "[project_sunshine_country.project_sunshine_top3_variables_0] [project_sunshine_top3_unit.GetName]"
+    project_sunshine_top3_second: "2. [project_sunshine_top3_countries_1.GetName]"
+    project_sunshine_top3_second_variable: "[project_sunshine_country.project_sunshine_top3_variables_1] [project_sunshine_top3_unit.GetName]"
+    project_sunshine_top3_third: "3. [project_sunshine_top3_countries_2.GetName]"
+    project_sunshine_top3_third_variable: "[project_sunshine_country.project_sunshine_top3_variables_2] [project_sunshine_top3_unit.GetName]"
+    project_sunshine_top3_category.1: "Top 3 countries with most pops"
+    project_sunshine_top3_unit.1: "£pops£"
+    project_sunshine_top3_category.2: "Top 3 countries with most alloys production"
+    project_sunshine_top3_unit.2: "£alloys£"
+    project_sunshine_top3_category.3: "Top 3 countries with most energy stored"
+    project_sunshine_top3_unit.3: "£energy£"
+    project_sunshine_top3_category.4: "Top 3 countries with most science production"
+    project_sunshine_top3_unit.4: "£energy£" # TODO
+    project_sunshine_top3_category.5: "Top 3 countries with most ships"
+    project_sunshine_top3_unit.5: "£energy£" # TODO
+    project_sunshine_top3_category.6: "Top 3 countries with most starbases"
+    project_sunshine_top3_unit.6: "£energy£" # TODO
+    project_sunshine_top3_category.7: "Top 3 countries with most diplomatic weight"
+    project_sunshine_top3_unit.7: "£energy£" # TODO
+    project_sunshine_top3_category.8: "Top 3 countries with most military power"
+    project_sunshine_top3_unit.8: "£energy£" # TODO

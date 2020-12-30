@@ -1,0 +1,14 @@
+#this = country scope
+project_sunshine_top3_candidate = {
+	OR = {
+		is_country_type = default
+	}
+}
+
+#this = country scope
+project_sunshine_display = {
+	is_ai = no
+	# OR = {
+	# 	is_country_type = default
+	# }
+}

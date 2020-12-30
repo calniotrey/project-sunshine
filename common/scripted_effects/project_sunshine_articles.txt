@@ -1,0 +1,74 @@
+# this = project sunshine country scope
+project_sunshine_select_article = {
+	set_variable = {
+		which = project_sunshine_article
+		value = 0
+	}
+	random_list = {
+		# galactic market founded first time, detractors
+		10 = {
+			modifier = {
+				factor = 0
+				project_sunshine_article_available_1 = no
+			}
+			project_sunshine_select_article_select_targets = {
+				ARTICLE = 1
+			}
+		}
+		0 = {
+			modifier = {
+				factor = 0
+				project_sunshine_article_available_2 = no
+			}
+			project_sunshine_select_article_select_targets = {
+				ARTICLE = 2
+			}
+		}
+		0 = {
+			modifier = {
+				factor = 0
+				project_sunshine_article_available_3 = no
+			}
+			project_sunshine_select_article_select_targets = {
+				ARTICLE = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = project_sunshine_article
+				value = 0
+			}
+		}
+		# no article available => select fallback article (ones that are always adequate)
+		# TODO
+	}
+}
+
+project_sunshine_select_article_select_targets = {
+	set_country_flag = project_sunshine_article_$ARTICLE$
+	set_variable = {
+		which = project_sunshine_article
+		value = $ARTICLE$
+	}
+	project_sunshine_select_article_select_targets_$ARTICLE$ = yes
+	event_target:project_sunshine_article = {
+		set_name = project_sunshine_article.$ARTICLE$
+	}
+}
+
+project_sunshine_select_article_select_targets_1 = {
+	random_country = {
+		limit = {
+			has_modifier = galactic_market_founder
+		}
+		save_event_target_as = project_sunshine_article_1_market_founder
+	}
+}
+
+project_sunshine_select_article_select_targets_2 = {
+}
+
+project_sunshine_select_article_select_targets_3 = {
+}

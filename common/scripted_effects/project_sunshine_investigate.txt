@@ -1,0 +1,17 @@
+# this = project sunshine country scope
+project_sunshine_investigate = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = project_sunshine_galactic_market_founded_once
+			}
+			has_global_flag = galactic_market_founded
+		}
+		set_country_flag = project_sunshine_galactic_market_founded_once
+		set_country_flag = project_sunshine_galactic_market_founded_once_temp
+	}
+}
+
+project_sunshine_close_investigation = {
+	remove_country_flag = project_sunshine_galactic_market_founded_once_temp
+}

@@ -1,0 +1,11 @@
+on_game_start = {
+	events = {
+		project_sunshine.1
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		project_sunshine.100
+	}
+}

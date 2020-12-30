@@ -1,0 +1,231 @@
+# this = project sunshine country scope
+project_sunshine_select_top3 = {
+	set_variable = {
+		which = project_sunshine_top3_category
+		value = 0
+	}
+	SLEX_reset_list_variable = {
+		LIST = project_sunshine_top3_variables
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = project_sunshine_top3_category
+				value = 0
+			}
+		}
+		random_list = {
+			# number of pops
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_1
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 1
+				}
+			}
+			# alloys production
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_2
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 2
+				}
+			}
+			# energy balance
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_3
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = project_sunshine_top3_category
+					value = 0
+				}
+			}
+			# no top available => remove all flags and restart
+			remove_country_flag = project_sunshine_top3_category_1
+			remove_country_flag = project_sunshine_top3_category_2
+			remove_country_flag = project_sunshine_top3_category_3
+		}
+	}
+	SLEX_heapsort = {
+		LIST = project_sunshine_top3_variables
+		ZIPPED_EVENT_TARGETS = project_sunshine_top3_countries
+		ASCENDING = no
+	}
+}
+
+project_sunshine_select_top3_compute_score = {
+	set_variable = {
+		which = project_sunshine_top3_category
+		value = $CATEGORY$
+	}
+	set_country_flag = project_sunshine_top3_category_$CATEGORY$
+	event_target:project_sunshine_top3_category = {
+		set_name = project_sunshine_top3_category.$CATEGORY$
+	}
+	event_target:project_sunshine_top3_unit = {
+		set_name = project_sunshine_top3_unit.$CATEGORY$
+	}
+	every_country = {
+		limit = {
+			project_sunshine_top3_candidate = yes
+		}
+		set_variable = {
+			which = project_sunshine_variable
+			value = 0
+		}
+		project_sunshine_select_top3_compute_score_$CATEGORY$ = yes
+		prev = {
+			set_variable = {
+				which = project_sunshine_variable
+				value = prev
+			}
+			SLEX_append_list_zipped = {
+				LIST = project_sunshine_top3_variables
+				ZIPPED_LIST = project_sunshine_top3_countries
+				VALUE = project_sunshine_variable
+				TARGET = prev
+			}
+		}
+		#cleanup
+		set_variable = {
+			which = project_sunshine_variable
+			value = 0
+		}
+	}
+	#cleanup
+	set_variable = {
+		which = project_sunshine_variable
+		value = 0
+	}
+}
+
+# number of pops
+project_sunshine_select_top3_compute_score_1 = {
+	every_owned_pop = {
+		prev = {
+			change_variable = {
+				which = project_sunshine_variable
+				value = 1
+			}
+		}
+	}
+}
+
+# alloys production
+project_sunshine_select_top3_compute_score_2 = {
+	if = {
+		limit = {
+			resource_income_compare = {
+				resource = alloys
+				value > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = alloys
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			resource_income_compare = {
+				resource = alloys
+				value > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = alloys
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = alloys
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# alloys production
+project_sunshine_select_top3_compute_score_3 = {
+	if = {
+		limit = {
+			has_country_resource = {
+				type = energy
+				amount > 65535
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = has_country_resource
+			FIRST_KW = type
+			SECOND_KW = energy
+			THIRD_KW = amount
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "000"
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_resource = {
+				type = energy
+				amount > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = has_country_resource
+			FIRST_KW = type
+			SECOND_KW = energy
+			THIRD_KW = amount
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_resource = {
+				type = energy
+				amount > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = has_country_resource
+			FIRST_KW = type
+			SECOND_KW = energy
+			THIRD_KW = amount
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = has_country_resource
+			FIRST_KW = type
+			SECOND_KW = energy
+			THIRD_KW = amount
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
