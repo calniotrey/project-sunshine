@@ -12,3 +12,7 @@ project_sunshine_display = {
 	# 	is_country_type = default
 	# }
 }
+
+project_sunshine_not_installed = {
+	always = no
+}
