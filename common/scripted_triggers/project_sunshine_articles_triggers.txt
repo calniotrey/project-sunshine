@@ -21,3 +21,9 @@ project_sunshine_article_available_3 = {
 		has_country_flag = project_sunshine_article_3
 	}
 }
+
+project_sunshine_article_available_4 = {
+	NOT = {
+		has_country_flag = project_sunshine_article_4
+	}
+}

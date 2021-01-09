@@ -24,13 +24,24 @@ project_sunshine_select_article = {
 				ARTICLE = 2
 			}
 		}
-		0 = {
+		# whenver, necrotic plague
+		1 = {
 			modifier = {
 				factor = 0
 				project_sunshine_article_available_3 = no
 			}
 			project_sunshine_select_article_select_targets = {
-				ARTICLE = 1
+				ARTICLE = 3
+			}
+		}
+		# whenver, rickroll
+		1 = {
+			modifier = {
+				factor = 0
+				project_sunshine_article_available_4 = no
+			}
+			project_sunshine_select_article_select_targets = {
+				ARTICLE = 4
 			}
 		}
 	}
@@ -71,4 +82,7 @@ project_sunshine_select_article_select_targets_2 = {
 }
 
 project_sunshine_select_article_select_targets_3 = {
+}
+
+project_sunshine_select_article_select_targets_4 = {
 }
