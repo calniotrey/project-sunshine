@@ -40,3 +40,7 @@ project_sunshine_ad_available_3 = {
 project_sunshine_ad_available_4 = {
 	always = yes
 }
+
+project_sunshine_ad_available_5 = {
+	has_country_flag = project_sunshine_fe_xenophobe_awakened_temp
+}

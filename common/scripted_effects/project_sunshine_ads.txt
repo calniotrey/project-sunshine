@@ -45,6 +45,16 @@ project_sunshine_select_ad = {
 				AD = 4
 			}
 		}
+		# FE xenophobe awakens
+		3000 = {
+			modifier = {
+				factor = 0
+				project_sunshine_ad_available_5 = no
+			}
+			project_sunshine_select_ad_select_targets = {
+				AD = 5
+			}
+		}
 	}
 }
 
@@ -114,4 +124,14 @@ project_sunshine_select_ad_select_targets_3 = {
 }
 
 project_sunshine_select_ad_select_targets_4 = {
+}
+
+project_sunshine_select_ad_select_targets_5 = {
+	random_country = {
+		limit = {
+			is_country_type = awakened_fallen_empire
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		save_event_target_as = project_sunshine_ad_5_fe
+	}
 }

@@ -10,8 +10,22 @@ project_sunshine_investigate = {
 		set_country_flag = project_sunshine_galactic_market_founded_once
 		set_country_flag = project_sunshine_galactic_market_founded_once_temp
 	}
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = project_sunshine_fe_xenophobe_awakened
+			}
+			any_country = {
+				is_country_type = awakened_fallen_empire
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		set_country_flag = project_sunshine_fe_xenophobe_awakened
+		set_country_flag = project_sunshine_fe_xenophobe_awakened_temp
+	}
 }
 
 project_sunshine_close_investigation = {
 	remove_country_flag = project_sunshine_galactic_market_founded_once_temp
+	remove_country_flag = project_sunshine_fe_xenophobe_awakened_temp
 }

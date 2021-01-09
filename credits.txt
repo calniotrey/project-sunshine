@@ -1,2 +1,4 @@
-Credits sorted by date of first contribution
+Credits sorted by date of first contribution. To know who wrote what, look into the localisation files.
 CalNiotrey (framework, UI, writing, top3)
+Flying Scorpion (writing)
+AryxErin (writing)
