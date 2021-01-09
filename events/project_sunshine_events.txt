@@ -227,11 +227,22 @@ country_event = {
 		set_country_flag = project_sunshine_top3_category_1
 		set_country_flag = project_sunshine_top3_category_2
 		set_country_flag = project_sunshine_top3_category_3
+		set_country_flag = project_sunshine_top3_category_4
+		set_country_flag = project_sunshine_top3_category_5
+		set_country_flag = project_sunshine_top3_category_6
+		set_country_flag = project_sunshine_top3_category_7
+		set_country_flag = project_sunshine_top3_category_8
+		set_country_flag = project_sunshine_top3_category_9
+		set_country_flag = project_sunshine_top3_category_10
+		set_country_flag = project_sunshine_top3_category_11
 		set_country_flag = project_sunshine_ad_1
 		set_country_flag = project_sunshine_ad_2
 		set_country_flag = project_sunshine_ad_3
+		set_country_flag = project_sunshine_ad_4
+		set_country_flag = project_sunshine_ad_5
 		set_country_flag = project_sunshine_article_1
 		set_country_flag = project_sunshine_article_2
 		set_country_flag = project_sunshine_article_3
+		set_country_flag = project_sunshine_article_4
 	}
 }
