@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_text_project_sunshine_research_icon"
+		texturefile = "gfx/interface/icons/text_icons/project_sunshine_research_icon.dds"
+	}
+}

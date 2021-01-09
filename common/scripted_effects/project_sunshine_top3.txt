@@ -35,7 +35,7 @@ project_sunshine_select_top3 = {
 					CATEGORY = 2
 				}
 			}
-			# energy balance
+			# energy stock
 			10 = {
 				modifier = {
 					factor = 0
@@ -43,6 +43,86 @@ project_sunshine_select_top3 = {
 				}
 				project_sunshine_select_top3_compute_score = {
 					CATEGORY = 3
+				}
+			}
+			# total science production
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_4
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 4
+				}
+			}
+			# number of ships
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_5
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 5
+				}
+			}
+			# number of owned systems
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_6
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 6
+				}
+			}
+			# diplomatic weight
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_7
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 7
+				}
+			}
+			# fleet power
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_8
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 8
+				}
+			}
+			# highest level ruler
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_9
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 9
+				}
+			}
+			# total naval capacity
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_10
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 10
+				}
+			}
+			# used naval capacity
+			10 = {
+				modifier = {
+					factor = 0
+					has_country_flag = project_sunshine_top3_category_11
+				}
+				project_sunshine_select_top3_compute_score = {
+					CATEGORY = 11
 				}
 			}
 		}
@@ -57,6 +137,11 @@ project_sunshine_select_top3 = {
 			remove_country_flag = project_sunshine_top3_category_1
 			remove_country_flag = project_sunshine_top3_category_2
 			remove_country_flag = project_sunshine_top3_category_3
+			remove_country_flag = project_sunshine_top3_category_4
+			remove_country_flag = project_sunshine_top3_category_5
+			remove_country_flag = project_sunshine_top3_category_6
+			remove_country_flag = project_sunshine_top3_category_7
+			remove_country_flag = project_sunshine_top3_category_8
 		}
 	}
 	SLEX_heapsort = {
@@ -169,7 +254,7 @@ project_sunshine_select_top3_compute_score_2 = {
 	}
 }
 
-# alloys production
+# energy stock
 project_sunshine_select_top3_compute_score_3 = {
 	if = {
 		limit = {
@@ -225,6 +310,372 @@ project_sunshine_select_top3_compute_score_3 = {
 			FIRST_KW = type
 			SECOND_KW = energy
 			THIRD_KW = amount
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# total science production
+project_sunshine_select_top3_compute_score_4 = {
+	if = {
+		limit = {
+			resource_income_compare = {
+				resource = physics_research
+				value > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = physics_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			resource_income_compare = {
+				resource = physics_research
+				value > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = physics_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = physics_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+		}
+	}
+	change_variable = {
+		which = project_sunshine_variable
+		value = project_sunshine_variable_temp
+	}
+	if = {
+		limit = {
+			resource_income_compare = {
+				resource = society_research
+				value > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = society_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			resource_income_compare = {
+				resource = society_research
+				value > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = society_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = society_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+		}
+	}
+	change_variable = {
+		which = project_sunshine_variable
+		value = project_sunshine_variable_temp
+	}
+	if = {
+		limit = {
+			resource_income_compare = {
+				resource = engineering_research
+				value > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = engineering_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			resource_income_compare = {
+				resource = engineering_research
+				value > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = engineering_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = resource_income_compare
+			FIRST_KW = resource
+			SECOND_KW = engineering_research
+			THIRD_KW = value
+			VARIABLE = project_sunshine_variable_temp
+		}
+	}
+	change_variable = {
+		which = project_sunshine_variable
+		value = project_sunshine_variable_temp
+	}
+	set_variable = {
+		which = project_sunshine_variable_temp
+		value = 0
+	}
+}
+
+# number of ships
+project_sunshine_select_top3_compute_score_5 = {
+	if = {
+		limit = {
+			count_owned_ship = {
+				count > 4095
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = count_owned_ship
+			FIRST_KW = count
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			count_owned_ship = {
+				count > 255
+			}
+		}
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = count_owned_ship
+			FIRST_KW = count
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter_advanced = {
+			CONDITION_NAME = count_owned_ship
+			FIRST_KW = count
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# number of owned systems
+project_sunshine_select_top3_compute_score_6 = {
+	every_system_within_border = {
+		prev = {
+			change_variable = {
+				which = project_sunshine_variable
+				value = 1
+			}
+		}
+	}
+}
+
+# diplomatic weight
+project_sunshine_select_top3_compute_score_7 = {
+	# maximum 16 millions
+	if = {
+		limit = {
+			diplomacy_weight > 1048575
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = diplomacy_weight
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0000"
+		}
+	}
+	else_if = {
+		limit = {
+			diplomacy_weight > 65535
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = diplomacy_weight
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "000"
+		}
+	}
+	else_if = {
+		limit = {
+			diplomacy_weight > 4095
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = diplomacy_weight
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			diplomacy_weight > 255
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = diplomacy_weight
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = diplomacy_weight
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# fleet power
+project_sunshine_select_top3_compute_score_8 = {
+	# maximum 16 millions
+	if = {
+		limit = {
+			fleet_power > 1048575
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = fleet_power
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0000"
+		}
+	}
+	else_if = {
+		limit = {
+			fleet_power > 65535
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = fleet_power
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "000"
+		}
+	}
+	else_if = {
+		limit = {
+			fleet_power > 4095
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = fleet_power
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			fleet_power > 255
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = fleet_power
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = fleet_power
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# number of owned systems
+project_sunshine_select_top3_compute_score_9 = {
+	ruler = {
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = has_skill
+			VARIABLE = project_sunshine_variable
+		}
+	}
+	change_variable = {
+		which = project_sunshine_variable
+		value = ruler
+	}
+	ruler = {
+		set_variable = {
+			which = project_sunshine_variable
+			value = 0
+		}
+	}
+}
+
+# naval capacity absolute
+project_sunshine_select_top3_compute_score_10 = {
+	# usually max 9999
+	if = {
+		limit = {
+			max_naval_capacity > 4095
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = max_naval_capacity
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "00"
+		}
+	}
+	else_if = {
+		limit = {
+			max_naval_capacity > 255
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = max_naval_capacity
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = max_naval_capacity
+			VARIABLE = project_sunshine_variable
+		}
+	}
+}
+
+# used naval capacity
+project_sunshine_select_top3_compute_score_11 = {
+	# 100 = 100%
+	if = {
+		limit = {
+			used_naval_capacity_integer > 255
+		}
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = used_naval_capacity_integer
+			VARIABLE = project_sunshine_variable
+			ROUNDING_ZEROES = "0"
+		}
+	}
+	else = {
+		SLEX_get_custom_parameter = {
+			CONDITION_NAME = used_naval_capacity_integer
 			VARIABLE = project_sunshine_variable
 		}
 	}
